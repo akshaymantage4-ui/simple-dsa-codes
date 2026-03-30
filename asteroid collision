@@ -1,0 +1,22 @@
+nums=[1,2,-3,4,7,9,-11,12,-14,-16]
+n=len(nums)
+stack=[]
+for i in range(0,n):
+    if nums[i]>0:
+        stack.append(nums[i])
+    else:
+        while len(stack)!=0 and stack[-1]>0 and stack[-1]<abs(nums[i]):
+            stack.pop()
+        
+        if len(stack)!=0 and stack[-1]==abs(nums[i]):
+          stack.pop()
+            
+        elif len(stack)==0 or stack[-1]<0:
+           stack.append(nums[i])
+print(stack)
+
+''' 1) in if condition only for thepositive number
+    2) in else checking the condition of negatrive number
+    3) in while condition if top is greater than nums[i] we neglecting the nums[i]
+    time complexity is o(n) for worse condition
+    space complexity is o(n) if all n are pushed'''
