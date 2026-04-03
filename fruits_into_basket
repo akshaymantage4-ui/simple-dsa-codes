@@ -1,0 +1,24 @@
+nums=[3,3,3,1,2,1,1,2,3,3,4]
+right=0
+left=0
+max_length=0
+n=len(nums)
+my_dict={}
+
+while right<n:
+    my_dict[nums[right]]=my_dict.get(nums[right],0)+1
+    
+    if len(my_dict)>2:
+        my_dict[nums[left]]-=1 # reduce the number which is at left side from the my_dict
+        
+        if my_dict[nums[left]]==0:
+            del my_dict[nums[left]]
+        left+=1
+    if len(my_dict)<=2:
+        max_length=max(max_length,right-left+1)
+    right+=1
+print(max_length)
+        
+'''1)used the gets method in my_dict to stire the number repeated count
+2) time complexity=o(n)
+3)space complexity=o(3)==o(1)
