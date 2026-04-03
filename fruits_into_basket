@@ -22,3 +22,4 @@ print(max_length)
 '''1)used the gets method in my_dict to stire the number repeated count
 2) time complexity=o(n)
 3)space complexity=o(3)==o(1)
+4)also use while in the code rather than if'''
