@@ -1,0 +1,41 @@
+start= [1, 2]
+end= [100, 99]
+
+n1=len(start)
+
+result=[]
+
+for i in range(n1):
+    
+    result.append((start[i],end[i]))
+    
+print(result)
+
+
+
+selected = []
+used_values = set()
+
+# Step 1: take first meeting
+first_start, first_end = result[0]
+selected.append(result[0])
+
+used_values.add(first_start)
+used_values.add(first_end)
+
+# Step 2: compare with first meeting only
+for i in range(1, len(result)):
+    curr_start, curr_end = result[i]
+
+    if curr_start > first_end:
+        # check start and end not already used
+        if curr_start not in used_values and curr_end not in used_values:
+            selected.append(result[i])
+            used_values.add(curr_start)
+            used_values.add(curr_end)
+
+print(selected)
+
+'''TIME COMPLEXITY =O(N)
+   SPACE CCOMPLEXITY=O(1)'''
+        
